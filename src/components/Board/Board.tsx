@@ -9,7 +9,7 @@ import {
   randomUpdatedDate,
 } from '@mui/x-data-grid-generator';  
 
-
+  
 
 export default function DataGridDemo() {
   
