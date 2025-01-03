@@ -3,11 +3,11 @@ import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { useEffect , useState} from 'react';
 import axios from 'axios';
-// import {
-//   randomCreatedDate,
-//   randomTraderName,
-//   randomUpdatedDate,
-// } from '@mui/x-data-grid-generator';
+import {
+  randomCreatedDate,
+  randomTraderName,
+  randomUpdatedDate,
+} from '@mui/x-data-grid-generator';
 
 
 
