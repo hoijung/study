@@ -8,6 +8,8 @@ const Header = () => {
       <a href="/board">게시판</a>
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <a href="/reqruiter">구인</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="/realgrid">리얼그리드</a>
       <hr />
     </header>
   );
