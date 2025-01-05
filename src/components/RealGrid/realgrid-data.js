@@ -2,66 +2,66 @@ import { ValueType } from "realgrid";
  
 export const fields = [
   {
-    fieldName: "Name",
+    fieldName: "title",
     dataType: ValueType.TEXT,
   },
   {
-    fieldName: "FullName",
+    fieldName: "description",
     dataType: ValueType.TEXT,
   },
   {
-    fieldName: "Age",
+    fieldName: "price",
     dataType: ValueType.NUMBER,
   },
   {
-    fieldName: "Company",
+    fieldName: "style",
     dataType: ValueType.TEXT,
   },
   {
-    fieldName: "Email",
+    fieldName: "availableSizes",
     dataType: ValueType.TEXT,
   },
 ];
  
 export const columns = [
   {
-    name: "Name",
-    fieldName: "Name",
+    name: "title",
+    fieldName: "title",
     width: "80",
     header: {
-      text: "Name",
+      text: "title",
     },
   },
   {
-    name: "FullName",
-    fieldName: "FullName",
+    name: "description",
+    fieldName: "description",
     width: "150",
     header: {
-      text: "Full Name",
+      text: "description",
     },
   },
   {
-    name: "Company",
-    fieldName: "Company",
+    name: "style",
+    fieldName: "style",
     width: "220",
     header: {
-      text: "Company Name",
+      text: "style",
     },
   },
   {
-    name: "Age",
-    fieldName: "Age",
+    name: "price",
+    fieldName: "price",
     width: "130",
     header: {
-      text: "Age",
+      text: "price",
     },
   },
   {
-    name: "Email",
-    fieldName: "Email",
+    name: "availableSizes",
+    fieldName: "availableSizes",
     width: "300",
     header: {
-      text: "Email",
+      text: "availableSizes",
     },
   },
 ];
