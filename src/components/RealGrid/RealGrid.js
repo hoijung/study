@@ -26,7 +26,6 @@ function RealGrid() {
     try {
       const response = await axios.get(serverIp + '/rows'); // 실제 API URL로 변경
       setDataRows(response.data);
-      setIsInit(false)
       // console.log(response.data)
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -42,8 +41,6 @@ function RealGrid() {
   // 데이터 조회 함수
   const delHandle = () => {
     let rowState = dataProvider.getRowState(0);
-    // alert(rowState)
-    // debugger
     deleteGridData(gridView, dataProvider);
     // dataProvider.removeRow(1)
   };
@@ -54,18 +51,10 @@ function RealGrid() {
 
     const sub02 = getGridSaveData(dataProvider);
 
-    // sub02.map((p) => (
-
-    // ));
-
     const result = sub02.map((p) => {
       p.availableSizes = p.availableSizes.split(",");
       return p;
     });
-
-    // {products?.map((p) => (
-    //   <Product product={p} key={p.sku} />
-    // ))}
 
     try {
       await Promise.all(
@@ -91,6 +80,7 @@ function RealGrid() {
 
     if (isInit) {
       fetchData();
+      setIsInit(false)
     }
 
     grid.setDataSource(provider);
@@ -109,7 +99,7 @@ function RealGrid() {
   }, [dataRows]);
 
   return <>
-    <div ref={realgridElement} style={{ height: "500px", width: "80%", margin: "0 auto" }}></div>
+    <div ref={realgridElement} style={{ height: "700px", width: "80%", margin: "0 auto" }}></div>
     <Stack spacing={2} direction="row">
       <div><Button variant="contained" onClick={fetchData}>search</Button></div>
       <div><Button variant="contained" onClick={newHandle}>Add</Button></div>

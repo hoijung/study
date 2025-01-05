@@ -20,8 +20,10 @@ function Main() {
     fetchProducts();
   }, [fetchProducts]); 
 
+
   return (
     <div>
+      
       {isFetching && <Loader />}
       <S.TwoColumnGrid>
         <S.Side>
