@@ -3,13 +3,15 @@ import { IGetProductsResponse } from 'models';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
+const serverIp = process.env.REACT_APP_Server_IP;
+
 export const getProducts = async () => { 
   // let response: IGetProductsResponse;
 
   // if (isProduction) {
    let response = await axios.get(
       // 'https://react-shopping-cart-67954.firebaseio.com/products.json'
-      '//localhost:8080/products'
+      serverIp + '/products'
     );
   // } else {
   //   response = require('static/json/products.json');

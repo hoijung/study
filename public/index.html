@@ -7,8 +7,14 @@
       src="https://www.googletagmanager.com/gtag/js?id=UA-85006284-3"
     ></script>
     <script>
+      console.log(location.hostname)
       /** 아래 라이선스키는 localhost, 127.0.0.1에서만 사용이 가능한 라이선스 입니다. */
-      var realGrid2Lic = "upVcPE+wPOmtLjqyBIh9RkM/nBOseBrflwxYpzGZyYm9cY8amGDkiMnVeQKUHJDjW2y71jtk+wteqHQ1mRMIXzEcGIrzZpzzNTakk0yR9UcO/hzNodVsIiqQNVtxmmYt";
+      if (location.hostname == "localhost") {
+        var realGrid2Lic = "upVcPE+wPOmtLjqyBIh9RkM/nBOseBrflwxYpzGZyYm9cY8amGDkiMnVeQKUHJDjW2y71jtk+wteqHQ1mRMIXzEcGIrzZpzzNTakk0yR9UcO/hzNodVsIiqQNVtxmmYt";
+      } else {
+       var realGrid2Lic = "upVcPE+wPOmtLjqyBIh9RkM/nBOseBrflwxYpzGZyYk6TNo13pvfEF9L+8u5CJjWCriuBl+SJ/ZLzF9IDjeXTBTh8MgHa61l";
+      }
+       // 
     </script>
     <script>
       window.dataLayer = window.dataLayer || [];

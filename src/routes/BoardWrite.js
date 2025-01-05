@@ -21,8 +21,10 @@ const BoardWrite = () => {
     });
   };
 
+  const serverIp = process.env.REACT_APP_Server_IP;
+
   const saveBoard = async () => {
-    await axios.post(`//localhost:8080/board`, board).then((res) => {
+    await axios.post(serverIp + `/board`, board).then((res) => {
       alert('등록되었습니다.');
       navigate('/board');
     });

@@ -22,13 +22,15 @@ const BoardUpdate = () => {
     });
   };
 
+  const serverIp = process.env.REACT_APP_Server_IP;
+
   const getBoard = async () => {
-    const resp = await (await axios.get(`//localhost:8080/board/${idx}`)).data;
+    const resp = await (await axios.get(serverIp + `/board/${idx}`)).data;
     setBoard(resp.data);
   };
 
   const updateBoard = async () => {
-    await axios.patch(`//localhost:8080/board`, board).then((res) => {
+    await axios.patch(serverIp + `/board`, board).then((res) => {
       alert('수정되었습니다.');
       navigate('/board/' + idx);
     });

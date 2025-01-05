@@ -22,6 +22,9 @@ export default function DataGridDemo() {
     { field: "sku", headerName: "sku", width: 180, editable: true },
   ];
 
+  const serverIp = process.env.REACT_APP_Server_IP;
+  console.log("serverIp" + serverIp+'/products')
+
   // 데이터를 API에서 가져오기
   useEffect(() => {
     fetchData();
@@ -36,7 +39,7 @@ export default function DataGridDemo() {
   // 데이터 조회 함수
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/products'); // 실제 API URL로 변경
+      const response = await axios.get(serverIp+'/products'); // 실제 API URL로 변경
       setRows(response.data.products);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -44,18 +47,11 @@ export default function DataGridDemo() {
   };
 
   // Handle server-side save
-  const handleSave = async (newRow:any) => {
-    // const isNewRow = !newRow.id; // id가 없는 경우 추가된 행으로 판단
-    // debugger
-    // let isNewRow = false;
-    // if (!("title" in originalRow)) {
-    //   isNewRow = true;
-    // }
-    
+  const handleSave = async (newRow:any) => {   
     try {
 
       for (let row of addRows) {
-        await axios.post("//localhost:8080/product", row).then((res) => {
+        await axios.post(serverIp+"/product", row).then((res) => {
         });
       }
       fetchData();
@@ -79,7 +75,7 @@ export default function DataGridDemo() {
     try {
 
       for (let row of rowSelectionModel) {
-        await axios.delete(`http://localhost:8080/product/${row}`);
+        await axios.delete(serverIp + `/product/${row}`);
       }
 
       fetchData();
