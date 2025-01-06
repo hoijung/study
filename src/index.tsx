@@ -18,7 +18,7 @@ const root = document.getElementById('root')!;
 const container = ReactDOMClient.createRoot(root);
 
 container.render(
-  // <StrictMode>
+  <StrictMode>
     <BrowserRouter>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -30,5 +30,5 @@ container.render(
       </ProductsProvider>
     </ThemeProvider>
     </BrowserRouter>
-  // </StrictMode>
+   </StrictMode>
 );
