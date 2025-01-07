@@ -1,4 +1,4 @@
-import { createContext, useContext, FC, useState } from 'react';
+import { createContext, useContext, FC, useState, ReactNode } from 'react';
 import { ICartProduct, ICartTotal } from 'models';
 
 export interface ICartContext {
@@ -29,7 +29,12 @@ const totalInitialValues = {
   currencyFormat: '$',
 };
 
-const CartProvider: FC = (props) => {
+interface CartProviderProps {
+  children: ReactNode;  // children의 타입을 명시적으로 설정
+}
+
+// const CartProvider: FC<CartProviderProps> = ({ children }) => {
+const CartProvider: FC<CartProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState<ICartProduct[]>([]);
   const [total, setTotal] = useState<ICartTotal>(totalInitialValues);
@@ -43,7 +48,7 @@ const CartProvider: FC = (props) => {
     setTotal,
   };
 
-  return <CartContext.Provider value={CartContextValue} {...props} />;
+  return <CartContext.Provider value={CartContextValue} {...{ children }} />;
 };
 
 export { CartProvider, useCartContext };

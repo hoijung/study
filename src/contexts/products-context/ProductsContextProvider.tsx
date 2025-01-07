@@ -1,6 +1,6 @@
-import { createContext, useContext, FC, useState } from 'react';
+import { createContext, useContext, FC, useState, ReactNode } from 'react';
 
-import { IProduct } from 'models';
+import { IProduct } from 'models'; 
 
 export interface IProductsContext {
   isFetching: boolean;
@@ -24,7 +24,11 @@ const useProductsContext = (): IProductsContext => {
   return context;
 };
 
-const ProductsProvider: FC = (props) => {
+interface ProductsProviderProps {
+  children: ReactNode;  // children의 타입을 명시적으로 설정
+}
+
+const ProductsProvider: FC<ProductsProviderProps> = ({ children }) => {
   const [isFetching, setIsFetching] = useState(false);
   const [products, setProducts] = useState<IProduct[]>([]);
   const [filters, setFilters] = useState<string[]>([]);
@@ -38,7 +42,7 @@ const ProductsProvider: FC = (props) => {
     setFilters,
   };
 
-  return <ProductsContext.Provider value={ProductContextValue} {...props} />;
+  return <ProductsContext.Provider value={ProductContextValue} {...{ children }} />;
 };
 
 export { ProductsProvider, useProductsContext };

@@ -1,4 +1,4 @@
-import useIntersect from "utils/UseIntersect";
+// import useIntersect from "utils/UseIntersect";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
@@ -38,12 +38,12 @@ const Lists = () => {
     // dispatch(getPageData(page.current));
   }, []);
 
-  const [_, setRef] = useIntersect(async (entry: any, observer: any) => {
-    observer.unobserve(entry.target);
-    // await dispatch(getPageData(page.current++));
-    // await dispatch(getDataFromApi(page.current, true));
-    observer.observe(entry.target);
-  }, {});
+  // const [_, setRef] = useIntersect(async (entry: any, observer: any) => {
+  //   observer.unobserve(entry.target);
+  //   // await dispatch(getPageData(page.current++));
+  //   // await dispatch(getDataFromApi(page.current, true));
+  //   observer.observe(entry.target);
+  // }, {});
 
   return (
     <></>
