@@ -13,7 +13,9 @@ const Header = () => {
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <a href="/realgrid">리얼그리드</a>
       &nbsp;&nbsp;|&nbsp;&nbsp;
-      <a href="/projects">프로젝트</a>
+      <a href="/projects">React Query</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="/scroll">Scroll</a>
       &nbsp;&nbsp;
       {name} 님 안녕하세요
       <hr />

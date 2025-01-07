@@ -7,6 +7,7 @@ import DataGridDemo from 'components/Board/Board';
 import RealGrid from 'components/RealGrid';
 import LoginRedirectHandler from 'components/Kakao/LoginRedirectHandler';
 import Projects from 'components/Projects/Projects';
+import Scroll from 'components/Scroll/Scroll';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/realgrid" element={<RealGrid />} />
       <Route path="/kakao-login" element={<LoginRedirectHandler />} />
       <Route path="/projects" element={<Projects />} />
+      <Route path="/scroll" element={<Scroll />} />
     </Routes>
   );
 }

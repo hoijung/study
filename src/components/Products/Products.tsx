@@ -7,6 +7,9 @@ interface IProps {
   products: IProduct[];
 }
 
+interface ProductProps {
+  product: IProduct;
+}
 const Products = ({ products }: IProps) => {
   return (
     <S.Container>
