@@ -16,6 +16,8 @@ const Header = () => {
       <a href="/projects">React Query</a>
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <a href="/scroll">Scroll</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="/lists">Lists</a>
       &nbsp;&nbsp;
       {name} 님 안녕하세요
       <hr />

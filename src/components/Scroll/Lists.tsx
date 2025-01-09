@@ -1,64 +1,55 @@
-// import useIntersect from "utils/UseIntersect";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { useEffect, useRef } from "react";
-import axios from "axios";
+import { List } from '@mui/material';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import { useRef } from 'react';
+import SearchPostArticle from './SearchPostArticle';
 
-type RootState = {
-  apiData: any;
-  pageReducer: any;
-};
+// Create a client
+const queryClient = new QueryClient()
 
-const serverIp = process.env.REACT_APP_Server_IP;
+function Lists() {
+  return (
+    // Provide the client to your App
+    <QueryClientProvider client={queryClient}>
+      <Todos />
+    </QueryClientProvider>
+  )
+}
 
-// 데이터 조회 함수
-const fetchData = async () => {
-  try {
-    const response = await axios.get(serverIp+'/products'); // 실제 API URL로 변경
-    return response.data
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-};
+function Todos() {
+  const serverIp = process.env.REACT_APP_Server_IP;
+  // Access the client
+  const queryClient = useQueryClient()
 
-const Lists = () => {
-  const dispatch = useDispatch();
+  // 데이터 조회 함수
+  const fetchData = async () => {
+    try {
+      const response = await fetch(serverIp + '/projectList'); // 실제 API URL로 변경
+      return await response.json()
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
-  const { apiData, isLoaded, pageCount } = useSelector((state: RootState) => ({
-    apiData: state.apiData.data,
-    isLoaded: state.apiData.isLoaded,
-    pageCount: state.pageReducer.pageCount,
-  }));
+  // Queries
+  const query = useQuery({ queryKey: ['todos'], queryFn: fetchData })
 
-  const page = useRef(pageCount);
+  const ref = useRef(null);
 
-  useEffect(() => {
-    fetchData();
-    // dispatch(fetchData());
-    // dispatch(getPageData(page.current));
-  }, []);
 
-  // const [_, setRef] = useIntersect(async (entry: any, observer: any) => {
-  //   observer.unobserve(entry.target);
-  //   // await dispatch(getPageData(page.current++));
-  //   // await dispatch(getDataFromApi(page.current, true));
-  //   observer.observe(entry.target);
-  // }, {});
 
   return (
-    <></>
-    // <Wrap>
-    //   <Nav>
-    // 	...
-    //   </Nav>
-    //   <ul>
-    //     {apiData.map((item, idx) => {
-    //       ...
-    //     })}
-    //   </ul>
-    //   {isLoaded && <p ref={setRef}>Loading...</p>}
-    // </Wrap>
-  );
-};
+    <div>
+      <SearchPostArticle searchWord='ttt'/>
+      {/* {query.isLoading}
+      <ul>{query.data?.map((todo:any) => <li key={todo.id}>{todo.title}</li>)}</ul>      */}
+    </div>
+  )
+}
 
 export default Lists;
