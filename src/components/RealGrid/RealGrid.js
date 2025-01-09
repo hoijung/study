@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import getGridSaveData from "utils/gridUtil";
 import deleteGridData from "utils/gridUtil2";
+import getSeverIp from 'utils/getSeverIp';
 
 // 데이터를 API에서 가져오기
 
@@ -17,7 +18,8 @@ function RealGrid() {
   const [isInit, setIsInit] = useState(true);
   const [isSave, setIsSave] = useState(1);
 
-  const serverIp = process.env.REACT_APP_Server_IP;
+  // const serverIp = process.env.REACT_APP_Server_IP;
+  const serverIp = getSeverIp();
 
   const [dataRows, setDataRows] = useState([]);
 

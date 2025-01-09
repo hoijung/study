@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import getSeverIp from 'utils/getSeverIp';
 
 const BoardUpdate = () => {
   const navigate = useNavigate();
@@ -22,7 +23,8 @@ const BoardUpdate = () => {
     });
   };
 
-  const serverIp = process.env.REACT_APP_Server_IP;
+  // const serverIp = process.env.REACT_APP_Server_IP;
+  const serverIp = getSeverIp();
 
   const getBoard = async () => {
     const resp = await (await axios.get(serverIp + `/board/${idx}`)).data;

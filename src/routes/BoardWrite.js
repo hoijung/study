@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import getSeverIp from 'utils/getSeverIp';
 
 const BoardWrite = () => {
   const navigate = useNavigate();
@@ -21,7 +22,8 @@ const BoardWrite = () => {
     });
   };
 
-  const serverIp = process.env.REACT_APP_Server_IP;
+ // const serverIp = process.env.REACT_APP_Server_IP;
+ const serverIp = getSeverIp();
 
   const saveBoard = async () => {
     await axios.post(serverIp + `/board`, board).then((res) => {

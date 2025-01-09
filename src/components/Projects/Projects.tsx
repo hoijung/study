@@ -5,6 +5,7 @@ import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { useState } from 'react'
+import getSeverIp from 'utils/getSeverIp';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,7 +25,8 @@ type Post = {
   body: string
 }
 
-const serverIp = process.env.REACT_APP_Server_IP;
+// const serverIp = process.env.REACT_APP_Server_IP;
+const serverIp = getSeverIp();
 console.log(serverIp)
 
 function usePosts() {

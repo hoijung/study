@@ -1,9 +1,11 @@
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
 import { json } from 'stream/consumers';
+import getSeverIp from 'utils/getSeverIp';
 
 // 게시글 관련 Query들을 usePostQuery에서 관리
 export default function usePostQuery(keyword = '') {
-    const serverIp = process.env.REACT_APP_Server_IP;
+     // const serverIp = process.env.REACT_APP_Server_IP;
+  const serverIp = getSeverIp();
 
       interface SearchPostInfo {
         curPage: number;

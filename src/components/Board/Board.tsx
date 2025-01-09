@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-
+import getSeverIp from 'utils/getSeverIp';
 
 export default function DataGridDemo() {
 
@@ -22,7 +22,7 @@ export default function DataGridDemo() {
     { field: "sku", headerName: "sku", width: 180, editable: true },
   ];
 
-  const serverIp = process.env.REACT_APP_Server_IP;
+  const serverIp = getSeverIp();
   console.log("serverIp" + serverIp+'/products')
 
   // 데이터를 API에서 가져오기

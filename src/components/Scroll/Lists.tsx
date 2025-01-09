@@ -8,6 +8,7 @@ import {
 } from '@tanstack/react-query'
 import { useRef } from 'react';
 import SearchPostArticle from './SearchPostArticle';
+import getSeverIp from 'utils/getSeverIp';
 
 // Create a client
 const queryClient = new QueryClient()
@@ -22,7 +23,8 @@ function Lists() {
 }
 
 function Todos() {
-  const serverIp = process.env.REACT_APP_Server_IP;
+   // const serverIp = process.env.REACT_APP_Server_IP;
+   const serverIp = getSeverIp();
   // Access the client
   const queryClient = useQueryClient()
 

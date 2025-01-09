@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import getSeverIp from 'utils/getSeverIp';
 
 const BoardList = () => {
   const navigate = useNavigate();
@@ -26,7 +27,8 @@ const BoardList = () => {
       .map((e) => e.join('='))
       .join('&');
 
-      const serverIp = process.env.REACT_APP_Server_IP
+       // const serverIp = process.env.REACT_APP_Server_IP;
+  const serverIp = getSeverIp();
 
     const resp = await (
       await axios.get(serverIp + '/board?' + queryString)
