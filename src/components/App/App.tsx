@@ -9,6 +9,7 @@ import LoginRedirectHandler from 'components/Kakao/LoginRedirectHandler';
 import Projects from 'components/Projects/Projects';
 import Scroll from 'components/Scroll/Scroll';
 import Lists from 'components/Scroll/Lists';
+import FileUpload from 'components/File/FileUplad';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/projects" element={<Projects />} />
       <Route path="/scroll" element={<Scroll />} />
       <Route path="/lists" element={<Lists />} />
+      <Route path="/file" element={<FileUpload />} />
     </Routes>
   );
 }

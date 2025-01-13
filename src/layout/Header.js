@@ -18,6 +18,8 @@ const Header = () => {
       <a href="/scroll">Scroll</a>
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <a href="/lists">Lists</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="/file">File</a>
       &nbsp;&nbsp;
       {name} 님 안녕하세요
       <hr />
