@@ -20,10 +20,6 @@ export default function SearchPostArticle({ searchWord }: Props) {
   const { getSearchPostsQuery } = usePostQuery(searchWord);
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = getSearchPostsQuery;
 
-  // data.pages.map((post) => (
-  //   // console.log("i-->" + JSON.stringify(post.pages))
-  // ))
-  // console.log(data.pages)
   // Intersection Observer 커스텀 훅 사용
   useIntersectionObserver({
     // 관찰 대상

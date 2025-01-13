@@ -35,7 +35,7 @@ function usePosts() {
     
     queryKey: ['posts'],
     queryFn: async (): Promise<Array<Post>> => {
-      const response = await fetch('http://localhost:8080/projectList')
+      const response = await fetch(`${serverIp}/projectList`)
       return await response.json()
     },
   })

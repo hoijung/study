@@ -1,5 +1,12 @@
 import { IProduct } from 'models';
+import { useRef } from 'react';
 import Product from './Product';
+import { useIntersectionObserver } from 'components/Scroll/UseIntersect';
+import { QueryClientProvider, useSuspenseInfiniteQuery } from '@tanstack/react-query';
+import getSeverIp from 'utils/getSeverIp';
+import {QueryClient,
+} from '@tanstack/react-query'
+import SearchProducts from './SearchProducts';
 
 import * as S from './style';
 
@@ -7,17 +14,27 @@ interface IProps {
   products: IProduct[];
 }
 
-interface ProductProps {
-  product: IProduct;
-}
-const Products = ({ products }: IProps) => {
+// Create a client
+const queryClient = new QueryClient()
+
+const Products = () => {
+
   return (
-    <S.Container>
-      {products?.map((p) => (
-        <Product product={p} key={p.sku} />
-      ))}
-    </S.Container>
+    // Provide the client to your App
+    <QueryClientProvider client={queryClient}>
+      <Todos/>
+    </QueryClientProvider>
   );
 };
+
+
+const Todos = () => {
+  return (
+    <div>
+      <SearchProducts />     
+    </div>
+  )
+}
+
 
 export default Products;
